@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>diamond3c – Comprendre et appliquer le Diamond System</title>
+<meta name="description" content="diamond3c : l'application pour comprendre, apprendre et appliquer le Diamond System du billard français 3 bandes. Valeurs de départ, d'arrivée, visée et trajet.">
+<link rel="icon" href="img/favicon.png">
+<meta property="og:title" content="diamond3c – Comprendre et appliquer le Diamond System">
+<meta property="og:description" content="Comprendre, apprendre et appliquer le Diamond System du billard 3 bandes, sur votre téléphone.">
+<meta property="og:image" content="https://diamond3c.com/img/logo.png">
+<style>
+:root{--bg:#f5f7fb;--card:#fff;--ink:#14203a;--mute:#56627a;--navy:#0d2a5e;--blue:#1f5fbf;--gold:#f5c518;--red:#d6203a;--line:#dde3ee}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1428;--card:#121d38;--ink:#eef2fb;--mute:#a7b2cb;--line:#25335a}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:0 20px}
+header.top{display:flex;align-items:center;justify-content:space-between;padding:16px 0}
+.brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:-.01em;color:var(--ink);text-decoration:none}
+.brand img{width:36px;height:36px;border-radius:9px}
+.btn{display:inline-block;background:var(--navy);color:#fff;text-decoration:none;font-weight:700;padding:14px 24px;border-radius:999px;border:2px solid var(--navy)}
+.btn:hover{filter:brightness(1.15)}
+.btn.gold{background:var(--gold);color:#241a00;border-color:var(--gold)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.hero{display:grid;gap:32px;align-items:center;padding:24px 0 56px}
+.hero h1{font-size:clamp(30px,6vw,52px);line-height:1.08;margin:0 0 16px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--blue)}
+.hero p.lead{font-size:19px;color:var(--mute);margin:0 0 24px}
+.cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero .shot{justify-self:center}
+.phone{width:min(270px,70vw);border-radius:28px;border:8px solid #111827;box-shadow:0 24px 50px rgba(10,20,50,.28);display:block;background:#fff}
+@media(min-width:820px){.hero{grid-template-columns:1.2fr .8fr}}
+section{padding:48px 0;border-top:1px solid var(--line)}
+section h2{font-size:clamp(26px,4.5vw,36px);line-height:1.15;margin:0 0 10px;letter-spacing:-.015em}
+section p.sub{color:var(--mute);margin:0 0 28px;max-width:640px}
+.three{display:grid;gap:16px}
+@media(min-width:760px){.three{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.card .n{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;margin-bottom:10px}
+.card h3{margin:0 0 6px;font-size:20px}
+.card p{margin:0;color:var(--mute)}
+.shots{display:grid;gap:28px;grid-template-columns:repeat(2,1fr)}
+@media(min-width:820px){.shots{grid-template-columns:repeat(4,1fr)}}
+figure{margin:0;text-align:center}
+figure .phone{width:100%;max-width:230px;margin:0 auto;border-width:6px;border-radius:22px}
+figcaption{margin-top:12px;font-size:15px;color:var(--mute)}
+figcaption b{display:block;color:var(--ink);font-size:16px}
+.cols{display:grid;gap:16px}
+@media(min-width:760px){.cols{grid-template-columns:1fr 1fr}}
+.price{font-size:44px;font-weight:800;letter-spacing:-.02em}
+.price small{font-size:16px;font-weight:600;color:var(--mute)}
+ul.ok{list-style:none;padding:0;margin:14px 0 20px}
+ul.ok li{padding:5px 0 5px 28px;position:relative}
+ul.ok li::before{content:"✓";position:absolute;left:0;color:var(--blue);font-weight:800}
+.card.pro{border:2px solid var(--gold)}
+.tag{display:inline-block;background:var(--gold);color:#241a00;font-weight:800;font-size:13px;padding:3px 10px;border-radius:999px;margin-bottom:10px}
+.note{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--red);border-radius:12px;padding:16px 20px;color:var(--mute)}
+.note b{color:var(--ink)}
+details{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:700}
+details p{margin:10px 0 0;color:var(--mute)}
+footer{border-top:1px solid var(--line);padding:32px 0 48px;color:var(--mute);font-size:14px}
+footer a{color:var(--mute)}
+</style>
+</head>
+<body>
+<div class="w">
+<header class="top">
+  <a class="brand" href="#"><img src="img/favicon.png" alt="">diamond3c</a>
+  <a class="btn line" href="https://app.diamond3c.com">Ouvrir l'application</a>
+</header>
+
+<div class="hero">
+  <div>
+    <h1>Comprenez, apprenez et appliquez le <em>Diamond System</em></h1>
+    <p class="lead">Le billard français 3 bandes, expliqué sur un vrai tapis, dans votre poche. Placez les billes, lisez les valeurs, calculez la visée, vérifiez le trajet.</p>
+    <div class="cta">
+      <a class="btn gold" href="https://app.diamond3c.com">Essayer gratuitement</a>
+      <a class="btn line" href="#tarif">Voir la version complète</a>
+    </div>
+  </div>
+  <div class="shot"><img class="phone" src="img/capture-3.jpg" alt="Capture de l'application diamond3c : table de billard avec valeurs de départ, d'arrivée, visée et trajet" width="270" height="585"></div>
+</div>
+
+<section id="methode">
+  <h2>Trois étapes pour maîtriser le système</h2>
+  <p class="sub">diamond3c suit la méthode du Diamond System : on lit des valeurs sur les bandes, et une simple soustraction donne le point de visée.</p>
+  <div class="three">
+    <div class="card"><div class="n">1</div><h3>Comprendre</h3><p>Déplacez la bille rouge (arrivée) et la bille jaune (départ) : les valeurs et les diagonales se placent toutes seules sur les bandes du billard.</p></div>
+    <div class="card"><div class="n">2</div><h3>Apprendre</h3><p>Visée = départ − arrivée. Le calcul est affiché dans le bouton blanc, pour voir d'où vient chaque chiffre et le retenir.</p></div>
+    <div class="card"><div class="n">3</div><h3>Appliquer</h3><p>Placez la bille blanche, lisez le trajet en 3 bandes et reproduisez-le sur votre table. Il suffit de quelques secondes avant le coup.</p></div>
+  </div>
+</section>
+
+<section id="captures">
+  <h2>L'application en images</h2>
+  <p class="sub">Un billard au bon format, des couleurs claires, trois boutons. Pas de compte, pas de publicité.</p>
+  <div class="shots">
+    <figure><img class="phone" loading="lazy" src="img/capture-1.jpg" alt="Billard seul avec les billes" width="230" height="498"><figcaption><b>Le billard</b>Rouge, jaune et blanche à déplacer</figcaption></figure>
+    <figure><img class="phone" loading="lazy" src="img/capture-2.jpg" alt="Valeurs d'arrivée et de départ affichées sur les bandes" width="230" height="498"><figcaption><b>Les valeurs</b>Arrivée et départ sur les bandes, avec les diagonales</figcaption></figure>
+    <figure><img class="phone" loading="lazy" src="img/capture-3.jpg" alt="Visée et trajet de la bille blanche" width="230" height="498"><figcaption><b>La visée</b>Le calcul et le trajet de la blanche</figcaption></figure>
+    <figure><img class="phone" loading="lazy" src="img/capture-4.jpg" alt="Page d'information avec mode d'emploi et limites du système" width="230" height="498"><figcaption><b>Le mode d'emploi</b>Les règles et les limites du système</figcaption></figure>
+  </div>
+</section>
+
+<section id="tarif">
+  <h2>Essayez, puis débloquez tout</h2>
+  <p class="sub">Un achat unique, sans abonnement.</p>
+  <div class="cols">
+    <div class="card">
+      <h3>Version gratuite</h3>
+      <div class="price">0 €</div>
+      <ul class="ok">
+        <li>Pour découvrir le principe</li>
+        <li>Fonctions de base du Diamond System</li>
+        <li>Sans compte, sans publicité</li>
+      </ul>
+      <a class="btn line" href="https://app.diamond3c.com">Ouvrir l'application</a>
+    </div>
+    <div class="card pro">
+      <span class="tag">Version complète</span>
+      <h3>diamond3c complet</h3>
+      <div class="price">6,99 € <small>paiement unique</small></div>
+      <ul class="ok">
+        <li>Toutes les fonctions débloquées</li>
+        <li>Mises à jour futures incluses</li>
+        <li>Code d'activation reçu par e-mail</li>
+      </ul>
+      <!-- Remplacer # par le lien de paiement (Lemon Squeezy, Stripe...) -->
+      <a class="btn gold" href="#" id="buy">Acheter la version complète</a>
+    </div>
+  </div>
+</section>
+
+<section id="limites">
+  <h2>Bon à savoir</h2>
+  <div class="note"><b>Le Diamond System a ses limites.</b> Il fonctionne si l'attaque va de la grande bande vers la petite bande, et si la valeur de départ est supérieure ou égale à la valeur d'arrivée. Attaquez la bille blanche toujours au centre, avec le maximum de bon effet latéral.</div>
+</section>
+
+<section id="faq">
+  <h2>Questions fréquentes</h2>
+  <details><summary>Faut-il installer quelque chose ?</summary><p>Non : ouvrez app.diamond3c.com dans votre navigateur. Sur iPhone, « Partager » puis « Sur l'écran d'accueil » crée une icône, et l'application fonctionne ensuite en plein écran, même sans réseau.</p></details>
+  <details><summary>Est-ce que ça marche sur Android et sur ordinateur ?</summary><p>Oui, dans tout navigateur récent. L'affichage est pensé pour un téléphone tenu à la verticale.</p></details>
+  <details><summary>Le Diamond System, c'est quoi ?</summary><p>Une méthode du billard français 3 bandes qui attribue des valeurs aux bandes pour trouver où viser, par un simple calcul. diamond3c vous la montre sur un billard à l'échelle.</p></details>
+  <details><summary>Comment je reçois ma version complète ?</summary><p>Après le paiement, un code d'activation vous est envoyé par e-mail ; vous le saisissez dans l'application.</p></details>
+</section>
+</div>
+
+<footer>
+<div class="w">
+  <p><b>diamond3c</b> – Copyright diamond3c. Le Diamond System est une méthode de billard libre : diamond3c est un outil pédagogique indépendant, sans lien avec une fédération.</p>
+  <p><a href="mentions.html">Mentions légales</a> · <a href="confidentialite.html">Confidentialité</a> · <a href="cgv.html">CGV</a></p>
+</div>
+</footer>
+</body>
+</html>
